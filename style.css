@@ -1,0 +1,87 @@
+body {
+  font-family: Arial, sans-serif; display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img {
+  margin-bottom: 30px;
+}
+
+button {
+  padding: 15px;
+  width: 350px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+#add-tasks {
+  background-color: #80A6ED;
+  color: white;
+}
+
+#add-tasks:hover {
+  background-color: #5073b4;
+}
+
+#view-tasks {
+  background-color: transparent;
+  border: 2px solid #000;
+  color: #000;
+
+}
+
+#view-tasks:hover {
+  background-color: #c7c7c7;
+}
+
+#modify-task {
+  background-color: palegoldenrod;
+  color: black;
+}
+
+#modify-task:hover {
+  background-color: goldenrod;
+}
+
+#remove-task {
+  background-color: palevioletred;
+  color: black;
+}
+
+#remove-task:hover {
+  background-color: indianred;
+  color: white;
+}
+
+#sort-asc-task {
+  background-color: aliceblue;
+  color: black;
+}
+
+#sort-asc-task:hover {
+  background-color: cornflowerblue;
+  color: white;
+}
+
+#sort-desc-task {
+  background-color: blueviolet;
+  color: white;
+}
+
+#sort-desc-task:hover {
+  background-color: darkblue;
+  color: white;
+}
+
+#remove-duplicate-tasks {
+  background-color: darkslategray;
+  color: white;
+}
+
+#remove-duplicate-tasks:hover {
+  background-color: black;
+  color: white;
+}
