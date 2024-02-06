@@ -1,5 +1,5 @@
 // ====================================
-const tasks = [];
+let tasks = [];
 // ====================================
 // Functions for input validation purposes.
 function validateEmptyInput(input, category, suffix = "") {
@@ -22,7 +22,7 @@ function addTask() {
   const task = prompt("Enter a new task: ");
   if (validateEmptyInput(task, "task to add") === null)
     return;
-  
+
   tasks.push(task);
   alert(`Task (${task}) successfully added!`);
 }
@@ -46,11 +46,11 @@ function modifyTask() {
     printEmptyTaskMessage("modify any task");
     return;
   }
-  
+
   const task = prompt("Which task from the list would you like to modify? ");
   if (validateEmptyInput(task, "task to modify") === null)
     return;
-  
+
   const taskIndex = tasks.indexOf(task);
 
   if (taskIndex === -1) {
@@ -65,7 +65,7 @@ function modifyTask() {
 }
 
 function removeTask() {
-  if (tasks.length == 0) {
+  if (tasks.length === 0) {
     printEmptyTaskMessage("remove any task");
     return;
   }
@@ -80,8 +80,9 @@ function removeTask() {
     alert(`The task (${task}) does not currently exist in the list. Please try again.`);
     return;
   }
-  
-  tasks[taskIndex].slice(taskIndex, 1);
+
+  tasks.splice(taskIndex, 1);
+
   alert(`Task (${task}) successfully removed!`);
 }
 
@@ -90,7 +91,7 @@ function sortAlphabeticallyAsc() {
     printEmptyTaskMessage("sort the list");
     return;
   }
-  
+
   // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
   // For characters in strings comparisons.
   tasks.sort((a, b) => a.localeCompare(b));
@@ -102,21 +103,21 @@ function sortAlphabeticallyDesc() {
     printEmptyTaskMessage("sort the list");
     return;
   }
-  
+
   // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
   // For characters in strings comparisons.
   tasks.sort((a, b) => b.localeCompare(a));
   alert("Successfully sorted list by an alphabetically descending order.");
 }
 
-function removeDuplicates() {  
+function removeDuplicates() {
   if (tasks.length == 0) {
     printEmptyTaskMessage("remove duplicate tasks");
     return;
   }
   const uniqueTasks = [];
   const uniqueTaskRepeatCountList = [];
-  
+
   for (let i = 0; i < tasks.length; ++i) {
     const task = tasks[i];
     let elementIndex = uniqueTasks.indexOf(task);
@@ -124,9 +125,9 @@ function removeDuplicates() {
       uniqueTasks.push(task);
       uniqueTaskRepeatCountList.push(0);
     }
-    else {      
+    else {
       tasks.splice(i, 1);
-      
+
       ++uniqueTaskRepeatCountList[elementIndex];
       --i;
     }
@@ -137,12 +138,12 @@ function removeDuplicates() {
   uniqueTasks.forEach((element, iter) => {
     if (uniqueTaskRepeatCountList[iter] == 0)
       return;
-    
-      successfulDisplayMessage += `${element}: ${uniqueTaskRepeatCountList[iter]} time(s).\n`;
+
+    successfulDisplayMessage += `${element}: ${uniqueTaskRepeatCountList[iter]} time(s).\n`;
     if (foundDuplicates === false)
       foundDuplicates = true;
   });
-  
+
   let zeroRepetitionDisplayMessage = "There were no duplicate task entries.";
 
   alert(foundDuplicates ? successfulDisplayMessage : zeroRepetitionDisplayMessage);
